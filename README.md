@@ -60,4 +60,20 @@ Number of Sales = COUNTROWS(Sales)
 ```
 
 
+```
+Total Sales = SUM(Sales[Revenue])
+```
+
+Now select _Quick measure -> Calculations -> Month-over-month change_. Add _Total Sales_ as Base value, _Date_ as Date and click _Add_. This should add the folowing code to your table: 
+```
+Total Sales MoM% = 
+IF(
+	ISFILTERED('Sales'[Date]),
+	ERROR("Time intelligence quick measures can only be grouped or filtered by the Power BI-provided date hierarchy or primary date column."),
+	VAR __PREV_MONTH = CALCULATE([Total Sales], DATEADD('Sales'[Date].[Date], -1, MONTH))
+	RETURN
+		DIVIDE([Total Sales] - __PREV_MONTH, __PREV_MONTH)
+)
+```
+
 
