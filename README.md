@@ -64,6 +64,8 @@ Number of Sales = COUNTROWS(Sales)
 Total Sales = SUM(Sales[Revenue])
 ```
 
+Format _Total Sales_ with the right currency. 
+
 Now select _Quick measure -> Calculations -> Month-over-month change_. Add _Total Sales_ as Base value, _Date_ as Date and click _Add_. This should add the folowing code to your table: 
 ```
 Total Sales MoM% = 
@@ -76,5 +78,39 @@ IF(
 )
 ```
 
-Optional: As a last step, right click on _Product_ in the Products table and select _Create hierarchy_. Then right click on _Product Category -> Add to hierarchy_ and select the one you just created. 
+Optional: As a last step, right click on _Product Category_ in the Products table and select _Create hierarchy_. Then right click on _Product -> Add to hierarchy_ and select the one you just created. 
+
+## Build a simple report
+
+In this step you will build a report. There will not be any detailed instructions, as you can play around if the visuals that you like and format them according to your preferences. However there will be a list of requirements according to the data 
+
+Add the following visualizations on your first page: 
+- Display the two measures _Total Sales_ and _Number of Sales_ as standalone values
+- Create a map that shows the _Total Sales_ by _Country_ 
+- A visual (you choose the type) that shows _Total Sales_ and _Total Sales MoM%_ by _Date_ (Power BI will automatically add the Date Hierarchy, which is also required for the MoM measure to display correctly)
+- Add a filter for _Year_
+
+Add a second page:
+- Just add the _Decomposition Tree_ visual and resize it to fit the entire page. 
+- Add _Total Sales_ to the _Analyze_ field
+- Add the following fields to _Explain by_: Country, Product, Product Category, Date Hierarchy
+- Note how you can expand the value by the different fields you added. This allows you to analyze a value and do a root cause analysis 
+
+Optional: Now add a third page: 
+- Add a filter on _Country_
+- Add a visual that shows _Total Sales_ by _Date_
+- Add a Matrix, that has the _Product Category Hierarchy_ as Rows, the _Date_ as columns and _Total Sales, Total Sales MoM%_ as values.
+
+Matrix:
+
+<img width="189" alt="image" src="https://user-images.githubusercontent.com/49025350/235499838-fbd6cfb8-abe2-4b3e-a180-1af28e9956c8.png">
+
+You successfully built your first report, congratulations. Now play around with the formatting (you can chose different themes or adapt the current one by selecting _View -> Themes_ in the Ribbon) and see how the interactions between your visuals help you understand the data. 
+
+## Finished early? 
+
+If you finished early, you can try to implement the following features: 
+- Add an option to _drill down_ from the Map to the Details page, by chosing a country
+- Create a mobile layout for your report
+- Connect to the last file (Manufacturing.xlsx) by downloading it and using the Excel connector. Transform it into a useable format (are the colums and rows reversed?) and create a new report page, showing Sales and/or Product information by Manufacturer
 
