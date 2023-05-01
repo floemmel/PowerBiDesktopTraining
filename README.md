@@ -76,4 +76,5 @@ IF(
 )
 ```
 
+Optional: As a last step, right click on _Product_ in the Products table and select _Create hierarchy_. Then right click on _Product Category -> Add to hierarchy_ and select the one you just created. 
 
