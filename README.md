@@ -27,9 +27,11 @@ After following the steps, the four tables (queries) should be visible in your P
 
 First, the different sales data tables need to be combined into one. As they have the same structure, you can simple append them into a single table. 
 Start by selecting one of the Sales tables. Then select _Home -> Append Queries as New (selecting the arrow) -> Three or more tables_, then add the other two tables to the right side and click ok. 
+
 <img width="525" alt="image" src="https://user-images.githubusercontent.com/49025350/235491824-b221aa71-e557-4216-9824-4171fd7332a0.png">
 
 When asked about privacy levels, you can ignore them and continue.
+
 <img width="593" alt="image" src="https://user-images.githubusercontent.com/49025350/235491984-5e2a8520-6fd0-4ffe-9997-1f8a96a42649.png">
 
 Rename the new query to "Sales" in the query properties or by right clicking the query and selecting from the menu. 
@@ -46,4 +48,16 @@ Let's continue with the Products table. You will see that the headers are not co
 You should now have proper data. By selecting _View_ you can play around with the _Data Preview_ options such as _Column quality_ and _Column distribution_ to check if the quality is as expected. If you are happy, select _Home -> Close & Apply_. After a few seconds, the data should be loaded into Power BI Desktop. 
 
 ## Modeling and calculations
+
+First of all, select the _Model view_ in Power BI Desktop. Power BI will automatically try to detect relationships between your tables, and should have linked them based on ProductID. You can double click on the relationship or select _Manage relationships_ to view it and do changes if necessary. In this example, no changes should be required. 
+
+Go to the _Data view_ and check the imported data. Verify if the currencies are formatted correctly, if not you can select _Column tools_ and adapt the currency to the right format. Do this for the _Revenue_ column in Sales and the _Price_ column in Products. In the Sales table, select the _Country_ column and categorize it as Country in the Column tools. A little globe icon should appear next to the column name in the data pane. 
+
+We will now create some calculations. Select the Sales table, then click _New measure_ in the _Table tools_ menu to add a measure. Create the following measures: 
+
+```
+Number of Sales = COUNTROWS(Sales)
+```
+
+
 
