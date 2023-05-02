@@ -22,6 +22,8 @@ To connect, you can either download the files and use the _Text/CSV_ connector t
 
 Select _Get data_ in Power BI Desktop (you will find it in the ribbon on the _Home_ tab) and search for the connector that you are looking for. As there is no authentication required, you can select _Anonymous_ when using the Web connector. The Text/CSV connector doesn't require authentication at all, as it connects to a local file on your device. Once confirmed, the Power Query Editor will open with a preview of the query. 
 
+Then click _Connect_ or _Transform data_. Selecting the second one will open the Power Query Editor from which you can select _New Source_ to add a second source. 
+
 You will need to repeat it for all four files, alternatively to using _Get data_ on the ribbon you can also _New Source_ in the Power Query Editor. After following the steps, the four tables (queries) should be visible in your Power Query editor. 
 
 <img width="144" alt="image" src="https://user-images.githubusercontent.com/49025350/235483775-48bc7894-13d3-479e-9b34-96b0c7109b2e.png">
