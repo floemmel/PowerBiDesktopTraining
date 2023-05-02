@@ -1,9 +1,8 @@
 # Power BI Desktop Training Lab
 
-This is a simple Power BI Desktop training lab to learn the basics of the tool. It will walk through the main steps that would be done when building a Power BI report. 
+This is a simple Power BI Desktop training lab to learn the basics of the tool. It will walk through the main steps that would be done when building a Power BI report. Some steps will be described with more details than others, just look around the UI, the answer should be close! 
 
-Start by installing Power BI Desktop by following the [documentation](https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop), if not done yet. Open a new report file and save it, which will create a .PBIX file. 
-
+Start by installing Power BI Desktop by following the [documentation](https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop), if not done yet. Open a new report file and save it, which will create a .PBIX file. Power BI Desktop is free to download & use. 
 
 ## Data connection
 
@@ -38,7 +37,7 @@ If you accidentally close the Power Query Editor, you can open it again by selec
 
 ## Data transformation
 
-In this step, we will transform the data to make it ready for the report building. It will take around 15 minutes. 
+In this step, we will transform the data to make it ready for the report building. It should take around 15 minutes. 
 
 First, the different sales data tables need to be combined into one. As they have the same structure, you can simple append them into a single table. 
 Start by selecting one of the Sales tables. Then select _Home -> Append Queries as New (selecting the arrow) -> Three or more tables_, then add the other three tables to the right side and click ok. 
@@ -53,16 +52,20 @@ Rename the new query (the combination of the three tables) to "Sales" in the que
 
 As you don't need the individual tables anymore, you can deactivate them by right clicking them and unchecking _Enable load_. Their names should now appear in italic font and they will not be loaded into the report file. 
 
-In the Sales table, format the Revenue table as _Fixed Decimal_, which is the currency format. You will also notice that some of the values in the Country table are wrong, apparently someone made a typo when chosing the country. Fix it by replacing the value with the correct one, either in the source table (which you deactivated) or in the new Sales table. 
+In the _Sales_ table, format the _Revenue_ column as _Fixed Decimal_, which is the currency format. You can do that by selecting the format icon left of the column name or in the right-click menu under _Change type_.
 
-Let's continue with the Products table. You will see that the headers are not correct. Select _Home -> Use First Row as Headers_ to fix it. We now need to do some improvements to the actual data. 
+You will also notice that some of the values in the _Country_ table are wrong, apparently someone made a typo when chosing the country. Fix it by replacing the value with the correct one, either in the source table (which you deactivated) or in the new _Sales_ table. 
+
+Let's continue with the _Products_ table. You will see that the headers are not correct. Select _Home -> Use First Row as Headers_ to fix it. We now need to do some improvements to the actual data: 
 - The _Product_ column currently contains both the product name and the category, separated by a "|". Split the column by the correct delimiter and rename the columns accordingly. 
 - The _Category_ column contains a lot of missing values and is not required. Remove the column. 
 - The _Price_ column contains the currency and the value. Split the column, rename it correctly and change the type if necessary. 
 
-You should now have proper data. By selecting _View_ you can play around with the _Data Preview_ options such as _Column quality_ and _Column distribution_ to check if the quality is as expected. If you are happy, select _Home -> Close & Apply_. After a few seconds, the data should be loaded into Power BI Desktop. 
+You should now have cleaned data. By selecting _View_ you can play around with the _Data Preview_ options such as _Column quality_ and _Column distribution_ to check if the quality is as expected. If you are happy, select _Home -> Close & Apply_. After a few seconds, the data should be loaded into Power BI Desktop. 
 
 ## Modeling and calculations
+
+In this step you will create your data model by connecting the tables and create calculations. This should take around 10 mins. 
 
 First of all, select the _Model view_ in Power BI Desktop. Power BI will automatically try to detect relationships between your tables, and should have linked them based on ProductID. You can double click on the relationship or select _Manage relationships_ to view it and do changes if necessary. In this example, no changes should be required. 
 
