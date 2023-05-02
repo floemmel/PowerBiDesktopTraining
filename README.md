@@ -1,42 +1,57 @@
 # Power BI Desktop Training Lab
 
-This is a simple Power BI Desktop training to learn the basics of the tool. 
+This is a simple Power BI Desktop training lab to learn the basics of the tool. It will walk through the main steps that would be done when building a Power BI report. 
+
+Start by installing Power BI Desktop by following the [documentation](https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop), if not done yet. Open a new report file and save it, which will create a .PBIX file. 
 
 
 ## Data connection
 
-Connect to the .csv and .xlsx files provided in the [Data](data/) folder and import the following files: 
+In this step, we will connect to our data and import it into Power BI. It should take around 10 minutes. 
+
+As source, we will use sample sales data provided via .csv files in the [Data](data/) folder: 
 - [Products.csv](data/Products.csv) - Information about the products
 - [France.csv](data/France.csv) - Sales data for France
 - [Belgium.csv](data/Belgium.csv) - Sales data for Belgium
 - [Austria.csv](data/Austria.csv) - Sales data for Austria
 
-Note: The Manufacturer.xlsx file is not required. 
+Note: The _Manufacturer.xlsx_ file is not required. 
 
 To connect, you can either download the files and use the _Text/CSV_ connector to import the data, alternatively you can use the _Web_ connector and directly import from the link. For this to work, you need to select "View raw" after selecting a file in Github. 
 
-Select _Get data_ in Power BI Desktop and find the connector that you are looking for. As there is no authentication required, you can select _Anonymous_ when using the Web connector. The Text/CSV connector doesn't require authentication at all, as it connects to a local file on your device. 
-
 ![View raw in Github](https://user-images.githubusercontent.com/49025350/235483349-abd53ddd-ee94-4d64-8acd-fe6da182a5b2.png)
 
-After following the steps, the four tables (queries) should be visible in your Power Query editor. 
+Select _Get data_ in Power BI Desktop (you will find it in the ribbon on the _Home_ tab) and search for the connector that you are looking for. As there is no authentication required, you can select _Anonymous_ when using the Web connector. The Text/CSV connector doesn't require authentication at all, as it connects to a local file on your device. Once confirmed, the Power Query Editor will open with a preview of the query. 
+
+You will need to repeat it for all four files, alternatively to using _Get data_ on the ribbon you can also _New Source_ in the Power Query Editor. After following the steps, the four tables (queries) should be visible in your Power Query editor. 
 
 <img width="144" alt="image" src="https://user-images.githubusercontent.com/49025350/235483775-48bc7894-13d3-479e-9b34-96b0c7109b2e.png">
 
+Don't forget to save your file from time to time. While you are in the Power Query Editor, it will ask you if you want to apply changes, which you don't need to do right away, select _Apply later_:
+
+<img width="345" alt="image" src="https://user-images.githubusercontent.com/49025350/235687970-b45d4d36-2b9e-4b28-9cbb-244ef6e6143d.png">
+
+If you accidentally close the Power Query Editor, you can open it again by selecting _Transform data_ in the ribbon:
+
+<img width="1128" alt="image" src="https://user-images.githubusercontent.com/49025350/235688503-53f182a5-2689-4ac7-8eba-e4d144f76ed6.png">
+
+
 ## Data transformation
 
+In this step, we will transform the data to make it ready for the report building. It will take around 15 minutes. 
+
 First, the different sales data tables need to be combined into one. As they have the same structure, you can simple append them into a single table. 
-Start by selecting one of the Sales tables. Then select _Home -> Append Queries as New (selecting the arrow) -> Three or more tables_, then add the other two tables to the right side and click ok. 
+Start by selecting one of the Sales tables. Then select _Home -> Append Queries as New (selecting the arrow) -> Three or more tables_, then add the other three tables to the right side and click ok. 
 
 <img width="525" alt="image" src="https://user-images.githubusercontent.com/49025350/235491824-b221aa71-e557-4216-9824-4171fd7332a0.png">
 
-When asked about privacy levels, you can ignore them and continue.
+When asked about privacy levels, you can select _ignore_ or put all of them on _Public_ and continue. Pricacy levels in Power BI define whether you are allowed to combine multiple data sources. 
 
 <img width="593" alt="image" src="https://user-images.githubusercontent.com/49025350/235491984-5e2a8520-6fd0-4ffe-9997-1f8a96a42649.png">
 
-Rename the new query to "Sales" in the query properties or by right clicking the query and selecting from the menu. 
+Rename the new query (the combination of the three tables) to "Sales" in the query properties or by right clicking the query and selecting _Rename_ from the menu. 
 
-As you don't need the individual tables anymore, you can deactivate them by right clicking them and unchecking _Enable load_. Their names should now appear in italic font. 
+As you don't need the individual tables anymore, you can deactivate them by right clicking them and unchecking _Enable load_. Their names should now appear in italic font and they will not be loaded into the report file. 
 
 In the Sales table, format the Revenue table as _Fixed Decimal_, which is the currency format. You will also notice that some of the values in the Country table are wrong, apparently someone made a typo when chosing the country. Fix it by replacing the value with the correct one, either in the source table (which you deactivated) or in the new Sales table. 
 
