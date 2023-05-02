@@ -67,16 +67,17 @@ You should now have cleaned data. By selecting _View_ you can play around with t
 
 In this step you will create your data model by connecting the tables and create calculations. This should take around 10 mins. 
 
-First of all, select the _Model view_ in Power BI Desktop. Power BI will automatically try to detect relationships between your tables, and should have linked them based on ProductID. You can double click on the relationship or select _Manage relationships_ to view it and do changes if necessary. In this example, no changes should be required. 
+First of all, select the _Model view_ in Power BI Desktop. Power BI will automatically try to detect relationships between your tables, and should have linked them based on ProductID. If you create other reports with different models you might need to manually link them. You can double click on the relationship or select _Manage relationships_ to view it and do changes if necessary. In this example, no changes should be required. 
 
-Go to the _Data view_ and check the imported data. Verify if the currencies are formatted correctly, if not you can select _Column tools_ and adapt the currency to the right format. Do this for the _Revenue_ column in Sales and the _Price_ column in Products. In the Sales table, select the _Country_ column and categorize it as Country in the Column tools. A little globe icon should appear next to the column name in the data pane. 
+Go to the _Data view_ and check the imported data. Verify if the currencies are formatted correctly, if not you can select _Column tools_ and adapt the currency to the right format. Do this for the _Revenue_ column in Sales and the _Price_ column in Products (Note: As part of the data transformation you already had adapted the currency format, however only the generic data format, not the specific currency). In the _Sales_ table, select the _Country_ column and categorize it as **Country** in the Column tools. A little globe icon should appear next to the column name in the data pane. 
 
-We will now create some calculations. Select the Sales table, then click _New measure_ in the _Table tools_ menu to add a measure. Create the following measures: 
+We will now create some calculations. Select the Sales table in the data pane, then click _New measure_ in the _Table tools_ menu to add a measure. Create the following measure: 
 
 ```
 Number of Sales = COUNTROWS(Sales)
 ```
 
+Then repeat the process to create a second measure:
 
 ```
 Total Sales = SUM(Sales[Revenue])
@@ -96,11 +97,11 @@ IF(
 )
 ```
 
-Optional: As a last step, right click on _Product Category_ in the Products table and select _Create hierarchy_. Then right click on _Product -> Add to hierarchy_ and select the one you just created. 
+As a last step, right click on _Product Category_ in the Products table and select _Create hierarchy_. Then right click on _Product -> Add to hierarchy_ and select the one you just created. Optionally rename it.
 
 ## Build a simple report
 
-In this step you will build a report. There will not be any detailed instructions, as you can play around if the visuals that you like and format them according to your preferences. However there will be a list of requirements according to the data 
+In this step you will build a report, which should take 25 minutes. There will not be any detailed instructions, as you can play around if the visuals that you like and format them according to your preferences. However there will be a list of requirements according to the data 
 
 Add the following visualizations on your first page: 
 - Display the two measures _Total Sales_ and _Number of Sales_ as standalone values
@@ -128,7 +129,7 @@ You successfully built your first report, congratulations. Now play around with 
 ## Finished early? 
 
 If you finished early, you can try to implement the following features: 
+- Connect to the last file (Manufacturing.xlsx) by downloading it and using the Excel connector. Transform it into a useable format (are the colums and rows reversed?) and create a new report page, showing Sales and/or Product information by Manufacturer
 - Add an option to _drill down_ from the Map to the Details page, by chosing a country
 - Create a mobile layout for your report
-- Connect to the last file (Manufacturing.xlsx) by downloading it and using the Excel connector. Transform it into a useable format (are the colums and rows reversed?) and create a new report page, showing Sales and/or Product information by Manufacturer
 
